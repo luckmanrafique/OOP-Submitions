@@ -1,50 +1,27 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-#define SIZE 10
-class Stack{
+
+class Myclass {
 private:
-    char stck[SIZE];
-    int tos;
+    int a;
 public:
-    Stack();
-    void push(char c);
-    char pop();
+    Myclass(int x);
+    int get();
 };
-Stack::Stack(){
-    cout<<"Constructing a stack"<<endl;
-    tos=0;
+
+Myclass::Myclass(int x) {
+    a = x;
 }
-void Stack::push(char c){
-    if (tos==SIZE)
-    {
-        cout<<"Stack is full"<<endl;
-        return ;
-    }
-    stck[tos]=c;
-    tos++;
+
+int Myclass::get() {
+    return a;
 }
-char Stack::pop(){
-    if(tos==0){
-        cout<<"Stack is empty"<<endl;
-        return 0;
-    }
-    tos--;
-    return stck[tos];
-}
-int main(){
-    Stack s1,s2;
-    s1.push('A');
-    s2.push('X');
-    s1.push('B');
-    s2.push('Y');
-    s1.push('C');
-    s2.push('Z');
-    for(int i=0;i<3;i++){
-        cout<<"Pop s1: "<<s1.pop()<<endl;
-    }
-    cout<<"----------------------"<<endl;
-    for(int i=0;i<3;i++){
-        cout<<"Pop s2: "<<s2.pop()<<endl;
-    }
+
+int main() {
+    Myclass ob(120);
+    Myclass* p;
+    p = &ob;
+    cout << "Value using object: " << ob.get()<<endl;
+    cout << "Value using pointer: " << p->get()<<endl;
     return 0;
 }
